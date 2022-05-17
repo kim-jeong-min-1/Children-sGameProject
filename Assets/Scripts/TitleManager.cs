@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[System.Serializable]
 struct TitleBtn
 {
-
+    GameObject Btn;
+    float 
 }
 
 public class TitleManager : MonoBehaviour
