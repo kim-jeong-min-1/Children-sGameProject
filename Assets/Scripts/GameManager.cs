@@ -23,23 +23,38 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        var obj = FindObjectsOfType<GameManager>(); 
+        if (obj.Length == 1) 
+        { 
+            DontDestroyOnLoad(gameObject);
+        } 
+        else 
+        { 
+            Destroy(gameObject); 
+        }
+    }
+
     [SerializeField] private Image Panel;
     // Start is called before the first frame update
     void Start()
     {
-        
+           
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void FadeIn()
     {
         StartCoroutine("FadeInCoroutine");
     }
+
+    #region 페이드 인
     private IEnumerator FadeInCoroutine()
     {
         Panel.color = new Color(0, 0, 0, 0);
@@ -52,11 +67,14 @@ public class GameManager : MonoBehaviour
             Panel.color = new Color(0, 0, 0, fadeCount);
         }
     }
+    #endregion
 
     public void FadeOut()
     {
         StartCoroutine("FadeOutCoroutine");
     }
+
+    #region 페이드 아웃
     private IEnumerator FadeOutCoroutine()
     {
         Panel.color = new Color(0, 0, 0, 1);
@@ -68,4 +86,5 @@ public class GameManager : MonoBehaviour
             Panel.color = new Color(0, 0, 0, fadeCount);
         }
     }
+    #endregion
 }
