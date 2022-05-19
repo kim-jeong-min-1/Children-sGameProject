@@ -4,10 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [System.Serializable]
-struct TitleBtn
+struct TitleUI
 {
-    GameObject Btn;
-    float 
+    public GameObject UI;
+    public Vector2 startPos;
+    public Vector2 MovePos;
 }
 
 public class TitleManager : MonoBehaviour
@@ -17,22 +18,20 @@ public class TitleManager : MonoBehaviour
     {
         get
         {
+            if(instance == null)
+            {
+                instance = FindObjectOfType<TitleManager>();
+                if (instance == null)
+                {
+                    var instanceContainer = new GameObject("TitleManager");
+                    instance = instanceContainer.AddComponent<TitleManager>();
+                }
+            }
             return instance;
         }
     }
 
-    private void Awake()
-    {
-        if(instance == null)
-        {
-            instance = this;
-            return;
-        }
-
-        Destroy(gameObject);
-    }
-
-    [SerializeField] private GameObject TitleText;
+    [SerializeField] private List<TitleUI> TitleUI = new List<TitleUI>();
 
     // Start is called before the first frame update
     void Start()
@@ -48,9 +47,13 @@ public class TitleManager : MonoBehaviour
 
     private IEnumerator StartTitle()
     {
-
-
-
-        yield return null;
+        while (true)
+        {
+            for(int i = 0; i< TitleUI.Count; i++)
+            {
+                TitleUI[i].UI.transform.position = Vector2.MoveTowards(TitleUI[i].UI.transform.position, TitleUI[i].MovePos, 1f);
+            }
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 }
