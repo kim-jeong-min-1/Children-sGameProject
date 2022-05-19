@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using DG.Tweening;
 
 [System.Serializable]
 struct TitleUI
@@ -36,24 +36,21 @@ public class TitleManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(StartTitle());
+        StartTitle();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void StartTitle()
     {
-        
-    }
-
-    private IEnumerator StartTitle()
-    {
-        while (true)
+        GameManager.Instance.FadeOut();
+        TitleUI[0].UI.GetComponent<RectTransform>().DOAnchorPos(TitleUI[0].MovePos, 2f).SetEase(Ease.OutBounce);
+        for(int i = 1; i < TitleUI.Count; i++)
         {
-            for(int i = 0; i< TitleUI.Count; i++)
-            {
-                TitleUI[i].UI.transform.position = Vector2.MoveTowards(TitleUI[i].UI.transform.position, TitleUI[i].MovePos, 1f);
-            }
-            yield return new WaitForSeconds(0.1f);
+            TitleUI[i].UI.GetComponent<RectTransform>().DOAnchorPos(TitleUI[i].MovePos, 2f).SetEase(Ease.OutQuad);
         }
+    }
+
+    public void EndTitle()
+    {
+
     }
 }
