@@ -51,6 +51,11 @@ public class TitleManager : MonoBehaviour
 
     public void EndTitle()
     {
-
+        TitleUI[0].UI.GetComponent<RectTransform>().DOAnchorPos(TitleUI[0].startPos, 2f).SetEase(Ease.OutQuad);
+        for (int i = 1; i < TitleUI.Count; i++)
+        {
+            TitleUI[i].UI.GetComponent<RectTransform>().DOAnchorPos(TitleUI[i].startPos, 2f).SetEase(Ease.OutQuad);
+        }
+        GameManager.Instance.FadeIn();
     }
 }
