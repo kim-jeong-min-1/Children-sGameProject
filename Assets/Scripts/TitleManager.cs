@@ -91,6 +91,5 @@ public class TitleManager : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(loadScene);
-        GameManager.Instance.FadeOut();
     }
 }

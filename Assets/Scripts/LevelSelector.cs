@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class LevelSelector : MonoBehaviour
 {
@@ -12,7 +14,8 @@ public class LevelSelector : MonoBehaviour
 
     void Start()
     {
-        SelectLevel();
+        GameManager.Instance.FadeOut();
+        GetLevel();
     }
 
     // Update is called once per frame
@@ -21,7 +24,7 @@ public class LevelSelector : MonoBehaviour
         
     }
 
-    private void SelectLevel()
+    private void GetLevel()
     {
         for(int i = 0; i < levelBtns.Count; i++)
         {
@@ -31,5 +34,13 @@ public class LevelSelector : MonoBehaviour
                 levelBtns[i].Lock.SetActive(true);
             }              
         }
+    }
+
+    public void SelectLevel()
+    {
+        GameManager.Instance.FadeIn();
+
+        GameObject clickObject = EventSystem.current.currentSelectedGameObject;
+        SceneManager.LoadScene($"Stage_{clickObject.GetComponent<Stage>().Stage_Num}");
     }
 }
