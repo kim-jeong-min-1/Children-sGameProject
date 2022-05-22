@@ -10,7 +10,7 @@ public class LevelSelector : MonoBehaviour
     public List<Stage> levelBtns = new List<Stage>();
 
     public int levelReached = 1;
-    private int levelIndex = 1;
+    //private int levelIndex = 1;
 
     void Start()
     {
