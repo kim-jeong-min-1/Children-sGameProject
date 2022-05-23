@@ -9,7 +9,7 @@ public class LevelSelector : MonoBehaviour
     // Start is called before the first frame update
     public List<Stage> levelBtns = new List<Stage>();
 
-    public int levelReached = 1;
+    private int levelReached = 2;
     //private int levelIndex = 1;
 
     void Start()
