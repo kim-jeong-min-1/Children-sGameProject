@@ -33,13 +33,9 @@ public class StageManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
+
         GameManager.Instance.FadeOut();
     }
-
     // Update is called once per frame
     void Update()
     {

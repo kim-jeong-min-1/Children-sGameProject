@@ -12,7 +12,7 @@ public class LevelSelector : MonoBehaviour
     private int levelReached = 1;
     //private int levelIndex = 1;
 
-    void Start()
+    void Awake()
     {
         GameManager.Instance.FadeOut();
         GetLevel();
@@ -38,9 +38,15 @@ public class LevelSelector : MonoBehaviour
 
     public void SelectLevel()
     {
+        StartCoroutine("SelectLevelCoroutine");
+    }
+
+    private IEnumerator SelectLevelCoroutine()
+    {
+        GameObject clickObject = EventSystem.current.currentSelectedGameObject;
         GameManager.Instance.FadeIn();
 
-        GameObject clickObject = EventSystem.current.currentSelectedGameObject;
+        yield return new WaitForSeconds(1f);
         SceneManager.LoadScene($"Stage_{clickObject.GetComponent<Stage>().Stage_Num}");
     }
 }
