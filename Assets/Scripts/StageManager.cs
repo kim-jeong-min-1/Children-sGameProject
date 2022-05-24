@@ -22,6 +22,8 @@ public class StageManager : MonoBehaviour
         }
     }
 
+    private int Score;
+
     private void Awake()
     {
         var obj = FindObjectsOfType<GameManager>();
@@ -37,8 +39,14 @@ public class StageManager : MonoBehaviour
         GameManager.Instance.FadeOut();
     }
     // Update is called once per frame
-    void Update()
+    
+    public void PutPuzzle()
     {
-        
+        Score++;
+
+        if(Score >= 3)
+        {
+            Debug.Log("Game Clear!");
+        }
     }
 }
