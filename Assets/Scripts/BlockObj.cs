@@ -5,11 +5,13 @@ using UnityEngine.EventSystems;
 
 public class BlockObj : MonoBehaviour
 {
-    private Vector3 previousPos;
+    [SerializeField] private GameObject DropObj;
+    private Vector2 previousPos;
     private float startPosX;
     private float startPosY;
 
     private bool isDrag = false;
+    private bool isFinish;
     private void Start()
     {
         previousPos = this.transform.position;
@@ -17,12 +19,15 @@ public class BlockObj : MonoBehaviour
 
     private void Update()
     {
-        if(isDrag == true)
+        if (!isFinish)
         {
-            Vector2 mousePos;
-            mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            if (isDrag == true)
+            {
+                Vector2 mousePos;
+                mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-            this.transform.position = mousePos;
+                this.transform.position = mousePos;
+            }
         }
     }
 
@@ -36,6 +41,17 @@ public class BlockObj : MonoBehaviour
     private void OnMouseUp()
     {
         isDrag = false;
-        this.transform.position = previousPos;
+
+        float Distance = Vector2.Distance(this.transform.position, DropObj.transform.position);
+        if (Distance < 0.5f)
+        {
+            this.transform.position = DropObj.transform.position;
+            isFinish = true;
+            StageManager.Instance.PutPuzzle();
+        }
+        else
+        {
+            this.transform.position = previousPos;
+        }
     }
 }
