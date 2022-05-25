@@ -43,7 +43,7 @@ public class BlockObj : MonoBehaviour
         isDrag = false;
 
         float Distance = Vector2.Distance(this.transform.position, DropObj.transform.position);
-        if (Distance < 0.5f)
+        if (Distance < 0.25f)
         {
             this.transform.position = DropObj.transform.position;
             isFinish = true;

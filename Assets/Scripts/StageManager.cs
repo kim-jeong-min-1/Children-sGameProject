@@ -23,6 +23,9 @@ public class StageManager : MonoBehaviour
     }
 
     private int Score;
+    [SerializeField] private GameObject GameClearText;
+
+    private bool isGameClear = false;
 
     private void Awake()
     {
@@ -46,6 +49,8 @@ public class StageManager : MonoBehaviour
 
         if(Score >= 3)
         {
+            GameClearText.SetActive(true);
+            isGameClear = true;
             Debug.Log("Game Clear!");
         }
     }
