@@ -1,0 +1,18 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+[System.Serializable]
+public class StageData
+{
+    public Sprite BackGround;
+    public Sprite BlockObj_1;
+    public Sprite BlockObj_2;
+    public Sprite BlockObj_3;
+}
+
+[CreateAssetMenu(fileName = "StageSO", menuName = "Scriptable Object/StageSO")]
+public class StageSO : ScriptableObject
+{
+    public StageData[] stageDatas;
+}

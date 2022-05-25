@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -39,16 +40,24 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Image Panel;
     [SerializeField] private GameObject SettingMenu;
     // Start is called before the first frame update
-    void Start()
+
+    public void IngameHomeBtn()
+    {
+        StartCoroutine("IngameGoHome");
+    }
+    public void IngameSettingBtn()
     {
 
     }
 
-    // Update is called once per frame
-    void Update()
+    public IEnumerator IngameGoHome()
     {
+        FadeIn();
+        yield return new WaitForSeconds(1);
 
+        SceneManager.LoadScene("Title");
     }
+
 
     public void FadeIn()
     {

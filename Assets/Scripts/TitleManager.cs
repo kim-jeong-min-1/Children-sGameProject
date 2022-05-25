@@ -49,6 +49,7 @@ public class TitleManager : MonoBehaviour
     {
 
     }
+
     public void StartBtn()
     {
         StartCoroutine(EndTitle("Ingame"));
@@ -92,4 +93,6 @@ public class TitleManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(loadScene);
     }
+    
+
 }
