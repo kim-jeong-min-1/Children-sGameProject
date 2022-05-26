@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class StageManager : MonoBehaviour
 {
@@ -24,21 +25,17 @@ public class StageManager : MonoBehaviour
 
     private int Score;
     [SerializeField] private GameObject GameClearText;
+    [SerializeField] private GameObject ResultPopUP;
 
     private bool isGameClear = false;
 
     private void Awake()
     {
         var obj = FindObjectsOfType<GameManager>();
-        if (obj.Length == 1)
+        if (obj.Length > 1)
         {
-            DontDestroyOnLoad(gameObject);
+            Destroy(this.gameObject);
         }
-        else
-        {
-            Destroy(gameObject);
-        }
-
         GameManager.Instance.FadeOut();
     }
     // Update is called once per frame

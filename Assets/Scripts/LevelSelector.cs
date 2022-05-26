@@ -38,7 +38,7 @@ public class LevelSelector : MonoBehaviour
 
     public void SelectLevel()
     {
-        StartCoroutine("SelectLevelCoroutine");
+        StartCoroutine(SelectLevelCoroutine());
     }
 
     private IEnumerator SelectLevelCoroutine()
