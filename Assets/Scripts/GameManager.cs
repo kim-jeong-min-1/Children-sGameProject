@@ -39,18 +39,24 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private Image Panel;
     [SerializeField] private GameObject SettingMenu;
+    public int levelReached = 1;
     // Start is called before the first frame update
+
+    public void LoadSelectScene()
+    {
+        //levelSelcetor 씬으로 이동
+    }
+
+    public void IngameSettingBtn()
+    {
+        //설정 창
+    }
 
     public void IngameHomeBtn()
     {
         StartCoroutine("IngameGoHome");
     }
-    public void IngameSettingBtn()
-    {
-
-    }
-
-    public IEnumerator IngameGoHome()
+    private IEnumerator IngameGoHome()
     {
         FadeIn();
         yield return new WaitForSeconds(1);

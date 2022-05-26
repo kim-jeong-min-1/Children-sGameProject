@@ -9,9 +9,6 @@ public class LevelSelector : MonoBehaviour
     // Start is called before the first frame update
     public List<Stage> levelBtns = new List<Stage>();
 
-    private int levelReached = 1;
-    //private int levelIndex = 1;
-
     void Awake()
     {
         GameManager.Instance.FadeOut();
@@ -28,7 +25,7 @@ public class LevelSelector : MonoBehaviour
     {
         for(int i = 0; i < levelBtns.Count; i++)
         {
-            if (i + 1 > levelReached)
+            if (i + 1 > GameManager.Instance.levelReached)
             {
                 levelBtns[i].Stage_Btn.interactable = false;
                 levelBtns[i].Lock.SetActive(true);

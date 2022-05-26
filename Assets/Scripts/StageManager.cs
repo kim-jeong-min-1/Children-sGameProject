@@ -23,15 +23,18 @@ public class StageManager : MonoBehaviour
         }
     }
 
-    private int Score;
-    [SerializeField] private GameObject GameClearText;
     [SerializeField] private GameObject ResultPopUP;
+    [SerializeField] private GameObject PopUP;
+    [SerializeField] private List<Star> StarObj = new List<Star>(3);
 
+    private int Score;
+    private int StarCount = 3;
     private bool isGameClear = false;
+
 
     private void Awake()
     {
-        var obj = FindObjectsOfType<GameManager>();
+        var obj = FindObjectsOfType<StageManager>();
         if (obj.Length > 1)
         {
             Destroy(this.gameObject);
@@ -46,9 +49,32 @@ public class StageManager : MonoBehaviour
 
         if(Score >= 3)
         {
-            GameClearText.SetActive(true);
             isGameClear = true;
-            Debug.Log("Game Clear!");
+            GameManager.Instance.levelReached++;
+            StartCoroutine(ResultPopUpCoroutine());
         }
+    }
+
+    private IEnumerator ResultPopUpCoroutine()
+    {
+        yield return new WaitForSeconds(1);
+        ResultPopUP.SetActive(true);
+        PopUP.GetComponent<RectTransform>().DOAnchorPos(new Vector2(0, -67), 0.7f).SetEase(Ease.InQuad);
+        yield return new WaitForSeconds(0.9f);
+        StartCoroutine(StarCoroutine());
+    }
+
+    private IEnumerator StarCoroutine()
+    {
+        for(int i =0; i< StarCount; i++)
+        {
+            StarObj[i].GetStar();
+            yield return new WaitForSeconds(0.25f);
+        }
+    }
+
+    public void HomeBtn()
+    {
+        GameManager.Instance.IngameHomeBtn();
     }
 }
