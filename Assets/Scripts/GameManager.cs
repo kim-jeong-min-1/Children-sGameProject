@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private Image Panel;
     [SerializeField] private GameObject SettingMenu;
+    public int[] starReached = new int[3];
     public int levelReached = 1;
     // Start is called before the first frame update
 

@@ -29,6 +29,7 @@ public class LevelSelector : MonoBehaviour
             {
                 levelBtns[i].Stage_Btn.interactable = false;
                 levelBtns[i].Lock.SetActive(true);
+                levelBtns[i].StartEmpty.SetActive(true);
             }              
         }
     }

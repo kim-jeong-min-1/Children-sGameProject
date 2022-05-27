@@ -69,7 +69,7 @@ public class StageManager : MonoBehaviour
         for(int i =0; i< StarCount; i++)
         {
             StarObj[i].GetStar();
-            yield return new WaitForSeconds(0.25f);
+            yield return new WaitForSeconds(0.6f);
         }
     }
 

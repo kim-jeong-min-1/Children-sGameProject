@@ -10,7 +10,7 @@ public class Star : MonoBehaviour
     public void GetStar()
     {
         gameObject.SetActive(true);
-        gameObject.transform.DOScale(new Vector2(120, 120), 0.7f).SetEase(Ease.OutQuad);
+        gameObject.transform.DOScale(new Vector2(120, 120), 1f);
     }
     
     public void RecycleStar()
