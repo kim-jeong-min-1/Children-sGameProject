@@ -13,11 +13,6 @@ public class StageManager : MonoBehaviour
             if(instance == null)
             {
                 instance = FindObjectOfType<StageManager>();
-                if(instance == null)
-                {
-                    var instanceContainer = new GameObject("StageManager");
-                    instance = instanceContainer.AddComponent<StageManager>();
-                }
             }
             return instance;
         }
@@ -31,18 +26,20 @@ public class StageManager : MonoBehaviour
     private int StarCount = 3;
     private bool isGameClear = false;
 
-
     private void Awake()
     {
-        var obj = FindObjectsOfType<StageManager>();
-        if (obj.Length > 1)
+        if (instance != null)
         {
             Destroy(this.gameObject);
         }
+    }
+
+    private void Start()
+    {
         GameManager.Instance.FadeOut();
     }
     // Update is called once per frame
-    
+
     public void PutPuzzle()
     {
         Score++;
@@ -66,6 +63,10 @@ public class StageManager : MonoBehaviour
 
     private IEnumerator StarCoroutine()
     {
+        if (GameManager.Instance.starReached[GameManager.Instance.currentStageNum - 1] < StarCount)
+        {
+            GameManager.Instance.starReached[GameManager.Instance.currentStageNum - 1] = StarCount;
+        }
         for(int i =0; i< StarCount; i++)
         {
             StarObj[i].GetStar();

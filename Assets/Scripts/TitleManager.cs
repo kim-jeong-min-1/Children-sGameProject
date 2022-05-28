@@ -22,13 +22,16 @@ public class TitleManager : MonoBehaviour
             if(instance == null)
             {
                 instance = FindObjectOfType<TitleManager>();
-                if (instance == null)
-                {
-                    var instanceContainer = new GameObject("TitleManager");
-                    instance = instanceContainer.AddComponent<TitleManager>();
-                }
             }
             return instance;
+        }
+    }
+
+    private void Awake()
+    {
+        if(instance != null)
+        {
+            Destroy(this.gameObject);
         }
     }
 

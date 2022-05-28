@@ -39,8 +39,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private Image Panel;
     [SerializeField] private GameObject SettingMenu;
-    public int[] starReached = new int[3];
+    public int[] starReached = new int[3] { 0, 0, 0 }; //스테이지 수 만큼 추가
     public int levelReached = 1;
+    public int currentStageNum;
     // Start is called before the first frame update
 
     public void LoadSelectScene()
