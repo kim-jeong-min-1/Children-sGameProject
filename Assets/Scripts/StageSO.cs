@@ -9,6 +9,9 @@ public class StageData
     public Sprite BlockObj_1;
     public Sprite BlockObj_2;
     public Sprite BlockObj_3;
+    public Sprite BlocHallkObj_1;
+    public Sprite BlocHallkObj_2;
+    public Sprite BlockHallObj_3;
     public int StarCount = 0;
 }
 
