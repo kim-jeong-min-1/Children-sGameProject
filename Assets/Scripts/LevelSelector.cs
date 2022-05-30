@@ -56,6 +56,6 @@ public class LevelSelector : MonoBehaviour
         GameManager.Instance.FadeIn();
 
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene($"Stage_{clickObject.GetComponent<Stage>().Stage_Num}");
+        SceneManager.LoadScene($"Stage");
     }
 }

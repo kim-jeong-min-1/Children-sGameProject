@@ -17,9 +17,9 @@ MonoBehaviour:
     BlockObj_1: {fileID: 21300000, guid: 3423b2aba9c33264d8ef22fb172d12b5, type: 3}
     BlockObj_2: {fileID: 21300000, guid: 83575ca4804628642b10d47c42c971a5, type: 3}
     BlockObj_3: {fileID: 21300000, guid: c5f7d72181dc9824cb11703bfef45193, type: 3}
-    BlocHallkObj_1: {fileID: 0}
-    BlocHallkObj_2: {fileID: 0}
-    BlockHallObj_3: {fileID: 0}
+    BlocHallkObj_1: {fileID: 21300000, guid: 012f8a20b58fc5a44b0b14f536f83e52, type: 3}
+    BlocHallkObj_2: {fileID: 21300000, guid: 505a24870c3e67844844b13f202abd5c, type: 3}
+    BlockHallObj_3: {fileID: 21300000, guid: f68f7d8fd9a826946890ea60a23cd85c, type: 3}
     StarCount: 0
   - BackGround: {fileID: 21300000, guid: 4171f0180485286409bba6fa06edaafd, type: 3}
     BlockObj_1: {fileID: 0}

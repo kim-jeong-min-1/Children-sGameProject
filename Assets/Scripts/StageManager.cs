@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using DG.Tweening;
 
 public class StageManager : MonoBehaviour
@@ -21,7 +22,11 @@ public class StageManager : MonoBehaviour
     [SerializeField] private GameObject ResultPopUP;
     [SerializeField] private GameObject PopUP;
     [SerializeField] private List<Star> StarObj = new List<Star>(3);
+    [SerializeField] private SpriteRenderer[] BlockObjectSprite = new SpriteRenderer[3];
+    [SerializeField] private SpriteRenderer[] HallObjectSprite = new SpriteRenderer[3];
+    [SerializeField] private Image stageBackGround;
 
+    [SerializeField] StageSO stageSO;
     private int Score;
     private int StarCount = 3;
     private bool isGameClear = false;
@@ -32,6 +37,8 @@ public class StageManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
+        LoadStage();
     }
 
     private void Start()
@@ -39,7 +46,7 @@ public class StageManager : MonoBehaviour
         GameManager.Instance.FadeOut();
     }
     // Update is called once per frame
-
+    
     public void PutPuzzle()
     {
         Score++;
@@ -50,6 +57,19 @@ public class StageManager : MonoBehaviour
             GameManager.Instance.levelReached++;
             StartCoroutine(ResultPopUpCoroutine());
         }
+    }
+
+    private void LoadStage()
+    {
+        BlockObjectSprite[0].sprite = stageSO.stageDatas[GameManager.Instance.currentStageNum-1].BlockObj_1;
+        BlockObjectSprite[1].sprite = stageSO.stageDatas[GameManager.Instance.currentStageNum-1].BlockObj_2;
+        BlockObjectSprite[2].sprite = stageSO.stageDatas[GameManager.Instance.currentStageNum-1].BlockObj_3;
+
+        HallObjectSprite[0].sprite = stageSO.stageDatas[GameManager.Instance.currentStageNum-1].BlocHallkObj_1;
+        HallObjectSprite[1].sprite = stageSO.stageDatas[GameManager.Instance.currentStageNum-1].BlocHallkObj_2;
+        HallObjectSprite[2].sprite = stageSO.stageDatas[GameManager.Instance.currentStageNum-1].BlockHallObj_3;
+
+        stageBackGround.sprite = stageSO.stageDatas[GameManager.Instance.currentStageNum - 1].BackGround;
     }
 
     private IEnumerator ResultPopUpCoroutine()
