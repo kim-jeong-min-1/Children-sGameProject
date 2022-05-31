@@ -582,6 +582,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Panel: {fileID: 1256499304}
   SettingMenu: {fileID: 0}
+  starReached: 000000000000000000000000
+  levelReached: 1
+  currentStageNum: 0
 --- !u!4 &779331354
 Transform:
   m_ObjectHideFlags: 0
@@ -675,7 +678,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &933939141
 RectTransform:

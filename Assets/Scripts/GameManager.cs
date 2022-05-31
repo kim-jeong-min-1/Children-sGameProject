@@ -4,40 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
-    private static GameManager instance;
-    public static GameManager Instance
-    {
-        get
-        {
-            if(instance == null)
-            {
-                instance = FindObjectOfType<GameManager>();
-                if(instance == null)
-                {
-                    var instanceContainer = new GameObject("GameManager");
-                    instance = instanceContainer.AddComponent<GameManager>();
-                }
-            }
-            return instance;
-        }
-    }
-
     private void Awake()
     {
-        var obj = FindObjectsOfType<GameManager>(); 
-        if (obj.Length == 1) 
-        { 
-            DontDestroyOnLoad(gameObject);
-        } 
-        else 
-        { 
-            Destroy(gameObject); 
-        }
+        DontDestroyOnLoad(gameObject);
     }
 
-    [SerializeField] private Image Panel;
+    [SerializeField] public Image Panel;
     [SerializeField] private GameObject SettingMenu;
     public int[] starReached = new int[3] { 0, 0, 0 }; //스테이지 수 만큼 추가
     public int levelReached = 1;
@@ -79,7 +53,7 @@ public class GameManager : MonoBehaviour
 
         float fadeCount = 0;
         while(fadeCount < 1.0f)
-        {
+        {   
             fadeCount += 0.01f;
             yield return new WaitForSeconds(0.01f);
             Panel.color = new Color(0, 0, 0, fadeCount);

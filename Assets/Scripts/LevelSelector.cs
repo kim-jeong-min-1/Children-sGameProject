@@ -12,9 +12,12 @@ public class LevelSelector : MonoBehaviour
     [SerializeField] private Sprite GetStarSprite;
 
     void Awake()
+    {    
+        GetLevel();
+    }
+    private void Start()
     {
         GameManager.Instance.FadeOut();
-        GetLevel();
     }
 
     // Update is called once per frame

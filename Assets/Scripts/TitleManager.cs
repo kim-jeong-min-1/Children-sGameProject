@@ -12,29 +12,8 @@ struct TitleUI
     public Vector2 MovePos;
 }
 
-public class TitleManager : MonoBehaviour
+public class TitleManager : Singleton<TitleManager>
 {
-    private static TitleManager instance;
-    public static TitleManager Instance
-    {
-        get
-        {
-            if(instance == null)
-            {
-                instance = FindObjectOfType<TitleManager>();
-            }
-            return instance;
-        }
-    }
-
-    private void Awake()
-    {
-        if(instance != null)
-        {
-            Destroy(this.gameObject);
-        }
-    }
-
     [SerializeField] private List<TitleUI> TitleUI = new List<TitleUI>();
     [SerializeField] private GameObject TitleMenu;
 
@@ -94,7 +73,7 @@ public class TitleManager : MonoBehaviour
         GameManager.Instance.FadeIn();
 
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene(loadScene);
+        Loading.LoadingScene(loadScene);
     }
     
 

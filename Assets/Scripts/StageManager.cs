@@ -4,21 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
-public class StageManager : MonoBehaviour
+public class StageManager : Singleton<StageManager>
 {
-    private static StageManager instance;
-    public static StageManager Instance
-    {
-        get
-        {
-            if(instance == null)
-            {
-                instance = FindObjectOfType<StageManager>();
-            }
-            return instance;
-        }
-    }
-
     [SerializeField] private GameObject ResultPopUP;
     [SerializeField] private GameObject PopUP;
     [SerializeField] private List<Star> StarObj = new List<Star>(3);
@@ -33,11 +20,6 @@ public class StageManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance != null)
-        {
-            Destroy(this.gameObject);
-        }
-
         LoadStage();
     }
 
@@ -47,6 +29,8 @@ public class StageManager : MonoBehaviour
     }
     // Update is called once per frame
     
+
+    //퍼즐 맞췄을때 호출
     public void PutPuzzle()
     {
         Score++;
@@ -59,6 +43,7 @@ public class StageManager : MonoBehaviour
         }
     }
 
+    //스테이지 불러오기
     private void LoadStage()
     {
         BlockObjectSprite[0].sprite = stageSO.stageDatas[GameManager.Instance.currentStageNum-1].BlockObj_1;
@@ -72,6 +57,7 @@ public class StageManager : MonoBehaviour
         stageBackGround.sprite = stageSO.stageDatas[GameManager.Instance.currentStageNum - 1].BackGround;
     }
 
+    //게임 종료시 팝업
     private IEnumerator ResultPopUpCoroutine()
     {
         yield return new WaitForSeconds(1);
@@ -81,6 +67,7 @@ public class StageManager : MonoBehaviour
         StartCoroutine(StarCoroutine());
     }
 
+    //별 시스템
     private IEnumerator StarCoroutine()
     {
         if (GameManager.Instance.starReached[GameManager.Instance.currentStageNum - 1] < StarCount)
@@ -93,7 +80,7 @@ public class StageManager : MonoBehaviour
             yield return new WaitForSeconds(0.6f);
         }
     }
-
+    
     public void HomeBtn()
     {
         GameManager.Instance.IngameHomeBtn();
