@@ -5,7 +5,7 @@ using DG.Tweening;
 
 public class Star : MonoBehaviour
 {
-    Vector2 previousScale = new Vector2(250, 250);
+    Vector2 previousScale = new Vector2(0, 0);
    
     public void GetStar()
     {

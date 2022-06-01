@@ -37,8 +37,12 @@ public class StageManager : Singleton<StageManager>
 
         if(Score >= 3)
         {
-            isGameClear = true;
-            GameManager.Instance.levelReached++;
+            if(GameManager.Instance.currentStageNum == GameManager.Instance.levelReached)
+            {
+                GameManager.Instance.levelReached++;
+            }
+
+            isGameClear = true;          
             StartCoroutine(ResultPopUpCoroutine());
         }
     }
