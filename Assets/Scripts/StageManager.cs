@@ -15,9 +15,11 @@ public class StageManager : Singleton<StageManager>
 
     [SerializeField] StageSO stageSO;
     private int Score;
-    private int StarCount = 3;
+    private int StarCount = 0;
     private bool isGameClear = false;
+    private float timer = 0;
 
+    //로딩하는 동안 스테이지 불러오기
     private void Awake()
     {
         LoadStage();
@@ -28,7 +30,15 @@ public class StageManager : Singleton<StageManager>
         GameManager.Instance.FadeOut();
     }
     // Update is called once per frame
-    
+
+    private void Update()
+    {
+        if(isGameClear == false)
+        {
+            timer += Time.deltaTime;
+        }
+    }
+
 
     //퍼즐 맞췄을때 호출
     public void PutPuzzle()
@@ -41,8 +51,21 @@ public class StageManager : Singleton<StageManager>
             {
                 GameManager.Instance.levelReached++;
             }
+            isGameClear = true;  
+            
+            if(timer <= 10.0f)
+            {
+                StarCount = 3;
+            }
+            else if(timer <= 20.0f)
+            {
+                StarCount = 2;
+            }
+            else
+            {
+                StarCount = 1;
+            }
 
-            isGameClear = true;          
             StartCoroutine(ResultPopUpCoroutine());
         }
     }
