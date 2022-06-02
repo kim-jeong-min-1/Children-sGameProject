@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using TMPro;
 
 public class StageManager : Singleton<StageManager>
 {
@@ -12,6 +13,8 @@ public class StageManager : Singleton<StageManager>
     [SerializeField] private SpriteRenderer[] BlockObjectSprite = new SpriteRenderer[3];
     [SerializeField] private SpriteRenderer[] HallObjectSprite = new SpriteRenderer[3];
     [SerializeField] private Image stageBackGround;
+    [SerializeField] private GameObject[] BlockObject;
+    [SerializeField] private TMP_Text CountText;
 
     [SerializeField] StageSO stageSO;
     private int Score;
@@ -23,6 +26,7 @@ public class StageManager : Singleton<StageManager>
     private void Awake()
     {
         LoadStage();
+        StartCoroutine(CountCoroutine());
     }
 
     private void Start()
@@ -33,7 +37,7 @@ public class StageManager : Singleton<StageManager>
 
     private void Update()
     {
-        if(isGameClear == false)
+        if(isGameClear == false && GameManager.Instance.isCount == false)
         {
             timer += Time.deltaTime;
         }
@@ -70,9 +74,35 @@ public class StageManager : Singleton<StageManager>
         }
     }
 
-    //스테이지 불러오기
+    //카운트 다운
+    private IEnumerator CountCoroutine()
+    {
+        yield return new WaitForSeconds(1f);
+        int countTime = 3;
+        CountText.gameObject.SetActive(true);
+
+        while(countTime > 0)
+        {
+            CountText.text = $"{countTime}";
+
+            yield return new WaitForSeconds(1f);
+            countTime--;
+        }
+        CountText.text = "Start!";
+
+        yield return new WaitForSeconds(0.5f);
+        CountText.gameObject.SetActive(false);
+        GameManager.Instance.isCount = false;
+    }
+
+
+    #region 게임시작
+    //스테이지 불러오기 (스테이지 시작시 해야할 처리 들)
     private void LoadStage()
     {
+        Shuffle();
+        GameManager.Instance.isCount = true;
+
         BlockObjectSprite[0].sprite = stageSO.stageDatas[GameManager.Instance.currentStageNum-1].BlockObj_1;
         BlockObjectSprite[1].sprite = stageSO.stageDatas[GameManager.Instance.currentStageNum-1].BlockObj_2;
         BlockObjectSprite[2].sprite = stageSO.stageDatas[GameManager.Instance.currentStageNum-1].BlockObj_3;
@@ -84,6 +114,24 @@ public class StageManager : Singleton<StageManager>
         stageBackGround.sprite = stageSO.stageDatas[GameManager.Instance.currentStageNum - 1].BackGround;
     }
 
+    //시작할때 마다 퍼즐이 랜덤하게 위치하도록 하는 함수
+    private void Shuffle()
+    {
+        int num = BlockObject.Length;
+        for(int i = 0; i < BlockObject.Length; i++)
+        {
+            int rand = Random.Range(0, num);
+
+            Vector3 temp = BlockObject[rand].transform.position;
+            BlockObject[rand].transform.position = BlockObject[num-1].transform.position;
+            BlockObject[num-1].transform.position = temp;
+
+            num--;
+        }
+    }
+    #endregion
+
+    #region 게임 종료
     //게임 종료시 팝업
     private IEnumerator ResultPopUpCoroutine()
     {
@@ -107,7 +155,8 @@ public class StageManager : Singleton<StageManager>
             yield return new WaitForSeconds(0.6f);
         }
     }
-    
+    #endregion
+
     public void HomeBtn()
     {
         GameManager.Instance.IngameHomeBtn();
