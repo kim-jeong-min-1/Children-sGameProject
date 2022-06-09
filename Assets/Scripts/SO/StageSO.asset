@@ -85,3 +85,35 @@ MonoBehaviour:
     BlocHallkObj_2: {fileID: 0}
     BlockHallObj_3: {fileID: 0}
     StarCount: 0
+  - BackGround: {fileID: 0}
+    BlockObj_1: {fileID: 0}
+    BlockObj_2: {fileID: 0}
+    BlockObj_3: {fileID: 0}
+    BlocHallkObj_1: {fileID: 0}
+    BlocHallkObj_2: {fileID: 0}
+    BlockHallObj_3: {fileID: 0}
+    StarCount: 0
+  - BackGround: {fileID: 0}
+    BlockObj_1: {fileID: 0}
+    BlockObj_2: {fileID: 0}
+    BlockObj_3: {fileID: 0}
+    BlocHallkObj_1: {fileID: 0}
+    BlocHallkObj_2: {fileID: 0}
+    BlockHallObj_3: {fileID: 0}
+    StarCount: 0
+  - BackGround: {fileID: 0}
+    BlockObj_1: {fileID: 0}
+    BlockObj_2: {fileID: 0}
+    BlockObj_3: {fileID: 0}
+    BlocHallkObj_1: {fileID: 0}
+    BlocHallkObj_2: {fileID: 0}
+    BlockHallObj_3: {fileID: 0}
+    StarCount: 0
+  - BackGround: {fileID: 0}
+    BlockObj_1: {fileID: 0}
+    BlockObj_2: {fileID: 0}
+    BlockObj_3: {fileID: 0}
+    BlocHallkObj_1: {fileID: 0}
+    BlocHallkObj_2: {fileID: 0}
+    BlockHallObj_3: {fileID: 0}
+    StarCount: 0

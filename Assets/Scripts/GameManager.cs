@@ -13,6 +13,7 @@ public class GameManager : Singleton<GameManager>
 
     [SerializeField] public Image Panel;
     [SerializeField] private GameObject SettingMenu;
+    [SerializeField] CanvasGroup canvasGroup;
 
     public int[] starReached = new int[3] { 0, 0, 0 }; //스테이지 수 만큼 추가
     public int levelReached = 1;
