@@ -29,12 +29,6 @@ public class StageManager : Singleton<StageManager>
         StartCoroutine(CountCoroutine());
     }
 
-    private void Start()
-    {
-        GameManager.Instance.FadeOut();
-    }
-    // Update is called once per frame
-
     private void Update()
     {
         if(isGameClear == false && GameManager.Instance.isCount == false)
@@ -77,6 +71,7 @@ public class StageManager : Singleton<StageManager>
     //카운트 다운
     private IEnumerator CountCoroutine()
     {
+        GameManager.Instance.FadeOut();
         yield return new WaitForSeconds(1f);
         int countTime = 3;
         CountText.gameObject.SetActive(true);

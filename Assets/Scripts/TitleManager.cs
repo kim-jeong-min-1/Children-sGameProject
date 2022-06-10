@@ -27,10 +27,6 @@ public class TitleManager : Singleton<TitleManager>
     {
         StartCoroutine(EndTitle("Title"));
     }
-    public void SettingBtn()
-    {
-
-    }
 
     public void StartBtn()
     {
@@ -51,12 +47,15 @@ public class TitleManager : Singleton<TitleManager>
         GameManager.Instance.FadeOut();
 
         yield return new WaitForSeconds(1f);
+
         TitleMenu.SetActive(true);
         TitleUI[0].UI.GetComponent<RectTransform>().DOAnchorPos(TitleUI[0].MovePos, 1.3f).SetEase(Ease.OutBounce);
         for(int i = 1; i < TitleUI.Count; i++)
         {
             TitleUI[i].UI.GetComponent<RectTransform>().DOAnchorPos(TitleUI[i].MovePos, 1.3f).SetEase(Ease.OutQuad);
         }
+
+        yield return null;
     }
 
     private IEnumerator EndTitle(string loadScene)

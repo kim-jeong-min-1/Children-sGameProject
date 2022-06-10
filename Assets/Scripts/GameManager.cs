@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -12,7 +13,7 @@ public class GameManager : Singleton<GameManager>
     }
 
     [SerializeField] public Image Panel;
-    [SerializeField] private GameObject SettingMenu;
+    [SerializeField] private GameObject SettingPopUP;
     [SerializeField] CanvasGroup canvasGroup;
 
     public int[] starReached = new int[3] { 0, 0, 0 }; //스테이지 수 만큼 추가
@@ -29,7 +30,14 @@ public class GameManager : Singleton<GameManager>
 
     public void IngameSettingBtn()
     {
-        //설정 창
+        canvasGroup.blocksRaycasts = true;
+        SettingPopUP.transform.DOScale(new Vector3(1, 1, 1), 0.8f).SetEase(Ease.OutQuad);
+    }
+
+    public void CloseBtn()
+    {
+        canvasGroup.blocksRaycasts = false;
+        SettingPopUP.transform.DOScale(new Vector3(0, 0, 0), 0.8f).SetEase(Ease.OutQuad);
     }
 
     public void IngameHomeBtn()
@@ -73,7 +81,6 @@ public class GameManager : Singleton<GameManager>
     #region 페이드 아웃
     private IEnumerator FadeOutCoroutine()
     {
-        Panel.color = new Color(0, 0, 0, 1);
         float fadeCount = 1;
         while (fadeCount > 0.0f)
         {
