@@ -14,6 +14,7 @@ public class GameManager : Singleton<GameManager>
 
     [SerializeField] public Image Panel;
     [SerializeField] private GameObject SettingPopUP;
+    [SerializeField] private GameObject ProducerPopUP;
     [SerializeField] CanvasGroup canvasGroup;
 
     public int[] starReached = new int[3] { 0, 0, 0 }; //스테이지 수 만큼 추가
@@ -21,6 +22,7 @@ public class GameManager : Singleton<GameManager>
     public int currentStageNum;
 
     public bool isCount = true;
+    private bool isProducer = false;
     // Start is called before the first frame update
 
     public void LoadSelectScene()
@@ -31,13 +33,27 @@ public class GameManager : Singleton<GameManager>
     public void IngameSettingBtn()
     {
         canvasGroup.blocksRaycasts = true;
-        SettingPopUP.transform.DOScale(new Vector3(1, 1, 1), 0.8f).SetEase(Ease.OutQuad);
+        SettingPopUP.transform.DOScale(new Vector3(1, 1, 1), 1.2f).SetEase(Ease.OutQuad);
     }
 
     public void CloseBtn()
     {
-        canvasGroup.blocksRaycasts = false;
-        SettingPopUP.transform.DOScale(new Vector3(0, 0, 0), 0.8f).SetEase(Ease.OutQuad);
+        if (isProducer)
+        {
+            isProducer = false;
+            ProducerPopUP.GetComponent<RectTransform>().DOSizeDelta(new Vector2(743, 0), 0.5f);
+        }
+        else
+        {
+            canvasGroup.blocksRaycasts = false;
+            SettingPopUP.transform.DOScale(new Vector3(0, 0, 0), 0.8f).SetEase(Ease.OutQuad);
+        }
+    }
+
+    public void ProducerBtn()
+    {
+        isProducer = true;
+        ProducerPopUP.GetComponent<RectTransform>().DOSizeDelta(new Vector2(743, 492), 0.5f);
     }
 
     public void IngameHomeBtn()
