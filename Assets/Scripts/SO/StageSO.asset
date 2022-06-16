@@ -22,44 +22,44 @@ MonoBehaviour:
     BlockHallObj_3: {fileID: 21300000, guid: f68f7d8fd9a826946890ea60a23cd85c, type: 3}
     StarCount: 0
   - BackGround: {fileID: 21300000, guid: 4171f0180485286409bba6fa06edaafd, type: 3}
-    BlockObj_1: {fileID: 0}
-    BlockObj_2: {fileID: 0}
-    BlockObj_3: {fileID: 0}
+    BlockObj_1: {fileID: 21300000, guid: 2b8a8aa37be0a144484a9c82f6a24211, type: 3}
+    BlockObj_2: {fileID: 21300000, guid: 83026637f70cd154dbb1900369576e3e, type: 3}
+    BlockObj_3: {fileID: 21300000, guid: 51a06f15ce365f148ba119d2f1d6101d, type: 3}
     BlocHallkObj_1: {fileID: 21300000, guid: 227569ad94f7a2e4c978bd6e3a392dfe, type: 3}
     BlocHallkObj_2: {fileID: 21300000, guid: 60005cf8f3dafa344af6088fb70581d9, type: 3}
     BlockHallObj_3: {fileID: 21300000, guid: 44d725c4564e1cb4eb42ffacc41c9768, type: 3}
     StarCount: 0
   - BackGround: {fileID: 21300000, guid: f84036715abe00447b1d2e32d5d5ea3d, type: 3}
-    BlockObj_1: {fileID: 0}
-    BlockObj_2: {fileID: 0}
-    BlockObj_3: {fileID: 0}
-    BlocHallkObj_1: {fileID: 0}
-    BlocHallkObj_2: {fileID: 0}
-    BlockHallObj_3: {fileID: 0}
+    BlockObj_1: {fileID: 21300000, guid: 543b66959882aba4894da88e33328179, type: 3}
+    BlockObj_2: {fileID: 21300000, guid: 6fcec423f1eb31c4aa4153ba91a5f2cc, type: 3}
+    BlockObj_3: {fileID: 21300000, guid: 5842ea518a2b9fd49aa3e1655ddbd80f, type: 3}
+    BlocHallkObj_1: {fileID: 21300000, guid: 67101e6dc45c9f347aad189fa2eb5dfa, type: 3}
+    BlocHallkObj_2: {fileID: 21300000, guid: a56dfe2734ba4b34987ca2423f6e8380, type: 3}
+    BlockHallObj_3: {fileID: 21300000, guid: 79bb45bb73119aa4694a2ebf6670e465, type: 3}
     StarCount: 0
   - BackGround: {fileID: 21300000, guid: e0150ff66674ecd49b8a5ff0b500fa0d, type: 3}
-    BlockObj_1: {fileID: 0}
-    BlockObj_2: {fileID: 0}
-    BlockObj_3: {fileID: 0}
-    BlocHallkObj_1: {fileID: 0}
-    BlocHallkObj_2: {fileID: 0}
-    BlockHallObj_3: {fileID: 0}
+    BlockObj_1: {fileID: 21300000, guid: 20b065a6dd1c1e44a95550b37170be9e, type: 3}
+    BlockObj_2: {fileID: 21300000, guid: b719a92c2e427484cacc58dbcb5a8021, type: 3}
+    BlockObj_3: {fileID: 21300000, guid: 2951da5e2d10d57478e1a258a2e137b0, type: 3}
+    BlocHallkObj_1: {fileID: 21300000, guid: 168c30daad80ef24fa9ed96e8d7a6672, type: 3}
+    BlocHallkObj_2: {fileID: 21300000, guid: 2a5b757801bc68f46a0174aed65d3950, type: 3}
+    BlockHallObj_3: {fileID: 21300000, guid: c6d3c8ef911658442a04f31b9c05031d, type: 3}
     StarCount: 0
-  - BackGround: {fileID: 0}
-    BlockObj_1: {fileID: 0}
-    BlockObj_2: {fileID: 0}
-    BlockObj_3: {fileID: 0}
-    BlocHallkObj_1: {fileID: 0}
-    BlocHallkObj_2: {fileID: 0}
-    BlockHallObj_3: {fileID: 0}
+  - BackGround: {fileID: 21300000, guid: add9c48ee39242744803e680b780c021, type: 3}
+    BlockObj_1: {fileID: 21300000, guid: 777e3a3ec373eaf468c3ddb82075aa97, type: 3}
+    BlockObj_2: {fileID: 21300000, guid: a2c115b411e577c4d9cf17786466f8fb, type: 3}
+    BlockObj_3: {fileID: 21300000, guid: 615a70d791c9b644ea7b8b5676b82ac1, type: 3}
+    BlocHallkObj_1: {fileID: 21300000, guid: ee6aeaa827d021047a5b87b7d5841bdc, type: 3}
+    BlocHallkObj_2: {fileID: 21300000, guid: 457a43693e1d95047b4eedf1732d0259, type: 3}
+    BlockHallObj_3: {fileID: 21300000, guid: 1db6bb5024d53ce4f94a21518992f15a, type: 3}
     StarCount: 0
-  - BackGround: {fileID: 0}
-    BlockObj_1: {fileID: 0}
-    BlockObj_2: {fileID: 0}
-    BlockObj_3: {fileID: 0}
-    BlocHallkObj_1: {fileID: 0}
-    BlocHallkObj_2: {fileID: 0}
-    BlockHallObj_3: {fileID: 0}
+  - BackGround: {fileID: 21300000, guid: 39d55a38a27f5944098b5f7f57a1b60f, type: 3}
+    BlockObj_1: {fileID: 21300000, guid: bcb7d17f25902e04c868d84163094e67, type: 3}
+    BlockObj_2: {fileID: 21300000, guid: aef08c3c2fa0a5c43a2d8601d5198255, type: 3}
+    BlockObj_3: {fileID: 21300000, guid: 9cff20e6fdbd6284297e546b27dcbb09, type: 3}
+    BlocHallkObj_1: {fileID: 21300000, guid: c01abe1e691939f49a649a28c896e20c, type: 3}
+    BlocHallkObj_2: {fileID: 21300000, guid: cfcf71ce3e3c30743a08b675f4a2d617, type: 3}
+    BlockHallObj_3: {fileID: 21300000, guid: 44679698210a3ca47bac15678b8afc12, type: 3}
     StarCount: 0
   - BackGround: {fileID: 0}
     BlockObj_1: {fileID: 0}

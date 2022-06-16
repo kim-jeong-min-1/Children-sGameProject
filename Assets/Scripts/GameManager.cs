@@ -17,7 +17,8 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private GameObject ProducerPopUP;
     [SerializeField] CanvasGroup canvasGroup;
 
-    public int[] starReached = new int[3] { 0, 0, 0 }; //스테이지 수 만큼 추가
+    public int[] starReached = new int[6]; //스테이지 수 만큼 추가
+
     public int levelReached = 1;
     public int currentStageNum;
 
@@ -33,7 +34,7 @@ public class GameManager : Singleton<GameManager>
     public void IngameSettingBtn()
     {
         canvasGroup.blocksRaycasts = true;
-        SettingPopUP.transform.DOScale(new Vector3(1, 1, 1), 1.2f).SetEase(Ease.OutQuad);
+        SettingPopUP.transform.DOScale(new Vector3(1, 1, 1), 0.9f).SetEase(Ease.OutQuad);
     }
 
     public void CloseBtn()
@@ -67,7 +68,6 @@ public class GameManager : Singleton<GameManager>
 
         SceneManager.LoadScene("Title");
     }
-
 
     public void FadeIn()
     {

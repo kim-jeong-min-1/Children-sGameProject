@@ -35,6 +35,7 @@ public class Loading : MonoBehaviour
             if(wTime < 2f)
             {
                 LoadingBar.fillAmount = wTime;
+
             }
             else
             {
