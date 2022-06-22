@@ -1574,6 +1574,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0036bcaf9afbb4468b0a2fe1dfc5976, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stageSO: {fileID: 11400000, guid: d0c94eba8436e8848b73cc181b2f1bbc, type: 2}
   ResultPopUP: {fileID: 1884655623}
   PopUP: {fileID: 1448585380}
   StarObj:
@@ -1594,7 +1595,6 @@ MonoBehaviour:
   - {fileID: 333850055}
   - {fileID: 1590467691}
   CountText: {fileID: 795003724}
-  stageSO: {fileID: 11400000, guid: d0c94eba8436e8848b73cc181b2f1bbc, type: 2}
 --- !u!4 &1006867600
 Transform:
   m_ObjectHideFlags: 0

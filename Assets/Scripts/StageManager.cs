@@ -5,8 +5,10 @@ using UnityEngine.UI;
 using DG.Tweening;
 using TMPro;
 
-public class StageManager : Singleton<StageManager>
+public class StageManager : Singleton<StageManager> 
 {
+    [SerializeField] StageSO stageSO;
+
     [SerializeField] private GameObject ResultPopUP;
     [SerializeField] private GameObject PopUP;
     [SerializeField] private List<Star> StarObj = new List<Star>(3);
@@ -16,7 +18,6 @@ public class StageManager : Singleton<StageManager>
     [SerializeField] private GameObject[] BlockObject;
     [SerializeField] private TMP_Text CountText;
 
-    [SerializeField] StageSO stageSO;
     private int Score;
     private int StarCount = 0;
     private bool isGameClear = false;
