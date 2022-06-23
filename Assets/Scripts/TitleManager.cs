@@ -71,7 +71,7 @@ public class TitleManager : Singleton<TitleManager>
         TitleMenu.SetActive(false);
         GameManager.Instance.FadeIn();
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.1f);
         Loading.LoadingScene(loadScene);
     }
     

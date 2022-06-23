@@ -11,9 +11,11 @@ public class StageManager : Singleton<StageManager>
 
     [SerializeField] private GameObject ResultPopUP;
     [SerializeField] private GameObject PopUP;
+
     [SerializeField] private List<Star> StarObj = new List<Star>(3);
     [SerializeField] private SpriteRenderer[] BlockObjectSprite = new SpriteRenderer[3];
     [SerializeField] private SpriteRenderer[] HallObjectSprite = new SpriteRenderer[3];
+
     [SerializeField] private Image stageBackGround;
     [SerializeField] private GameObject[] BlockObject;
     [SerializeField] private TMP_Text CountText;
@@ -156,5 +158,10 @@ public class StageManager : Singleton<StageManager>
     public void HomeBtn()
     {
         GameManager.Instance.IngameHomeBtn();
+    }
+
+    public void NextBtn()
+    {
+        StartCoroutine(GameManager.Instance.SelectLevelCoroutine(false));
     }
 }

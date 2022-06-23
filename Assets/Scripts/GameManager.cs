@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 using DG.Tweening;
 
 public class GameManager : Singleton<GameManager>
@@ -106,4 +107,22 @@ public class GameManager : Singleton<GameManager>
         }
     }
     #endregion
+
+    public IEnumerator SelectLevelCoroutine(bool isStageBtn)
+    {
+        if (isStageBtn)
+        {
+            GameObject clickObject = EventSystem.current.currentSelectedGameObject;
+            GameManager.Instance.currentStageNum = clickObject.GetComponent<Stage>().Stage_Num;
+        }
+        else
+        {
+            GameManager.Instance.currentStageNum++;
+        }
+        GameManager.Instance.FadeIn();
+
+        yield return new WaitForSeconds(1.1f);
+        SceneManager.LoadScene($"Stage");
+    }
+
 }
