@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2452493823776836881}
   - component: {fileID: 2452493823776836882}
   - component: {fileID: 2452493823776836883}
-  m_Layer: 7
+  m_Layer: 5
   m_Name: StarEffect_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 6203217208662263969}
+  m_Father: {fileID: 6002648864529613549}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!198 &2452493823776836882
@@ -115,7 +115,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.85
+      scalar: 0.65
       minScalar: 0.25
       maxCurve:
         serializedVersion: 2
@@ -2091,8 +2091,8 @@ ParticleSystem:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.8175815
-          value: -0.0000003669411
+          time: 0.6526492
+          value: 0.108108155
           inSlope: -2
           outSlope: -2
           tangentMode: 0
@@ -4870,17 +4870,17 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6203217208662263969}
+  - component: {fileID: 6002648864529613549}
   - component: {fileID: 5753479095729384266}
   - component: {fileID: 9182503390064341986}
-  m_Layer: 7
+  m_Layer: 5
   m_Name: StarParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6203217208662263969
+--- !u!4 &6002648864529613549
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4888,7 +4888,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2562760759984682349}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2452493823776836881}
@@ -9641,7 +9641,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -445743911
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 100
   m_RenderMode: 0
   m_SortMode: 0
@@ -9679,7 +9679,7 @@ GameObject:
   - component: {fileID: 1735352059159298179}
   - component: {fileID: 308234506466796952}
   - component: {fileID: 4102840842447396167}
-  m_Layer: 7
+  m_Layer: 5
   m_Name: StarEffect_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9697,7 +9697,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 6203217208662263969}
+  m_Father: {fileID: 6002648864529613549}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!198 &308234506466796952
@@ -9783,8 +9783,8 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.85
-      minScalar: 0.5
+      scalar: 0.65
+      minScalar: 0.25
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -11759,8 +11759,8 @@ ParticleSystem:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.8034973
-          value: 0
+          time: 0.6490936
+          value: 0.08108139
           inSlope: -2
           outSlope: -2
           tangentMode: 0

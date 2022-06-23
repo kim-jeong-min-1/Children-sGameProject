@@ -14,16 +14,16 @@ public class Star : MonoBehaviour
         gameObject.SetActive(true);
 
         Sequence sequence = DOTween.Sequence();
-        sequence.Append(transform.DOScale(new Vector2(120, 120), 0.7f).SetEase(Ease.OutBack).OnComplete(StarParticle));
-        sequence.InsertCallback(0.5f, StarParticle);        
+        sequence.Append(transform.DOScale(new Vector2(120, 120), 0.7f).SetEase(Ease.OutBack));
+        sequence.InsertCallback(0.3f, StarParticle);
     }
 
     private void StarParticle()
     {
-        print("eee");
-        Instantiate(StarEffect, transform.position, Quaternion.identity);
+        var particle = Instantiate(StarEffect, transform.position, Quaternion.identity);
+        Destroy(particle.gameObject, 1.2f);
     }
-    
+
     public void RecycleStar()
     {
         transform.localScale = previousScale;
