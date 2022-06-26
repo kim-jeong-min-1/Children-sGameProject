@@ -19,6 +19,7 @@ public class StageManager : Singleton<StageManager>
     [SerializeField] private Image stageBackGround;
     [SerializeField] private GameObject[] BlockObject;
     [SerializeField] private TMP_Text CountText;
+    [SerializeField] private GameObject PauseMenu;
 
     private int Score;
     private int StarCount = 0;
@@ -28,18 +29,25 @@ public class StageManager : Singleton<StageManager>
     //로딩하는 동안 스테이지 불러오기
     private void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = FindObjectOfType<StageManager>();
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
         LoadStage();
         StartCoroutine(CountCoroutine());
     }
 
     private void Update()
     {
-        if(isGameClear == false && GameManager.Instance.isCount == false)
+        if(isGameClear == false && GameManager.Instance.isCount == false && GameManager.Instance.isPause == false)
         {
             timer += Time.deltaTime;
         }
     }
-
 
     //퍼즐 맞췄을때 호출
     public void PutPuzzle()
@@ -163,5 +171,29 @@ public class StageManager : Singleton<StageManager>
     public void NextBtn()
     {
         StartCoroutine(GameManager.Instance.SelectLevelCoroutine(false));
+    }
+
+    public void PauseBtn()
+    {
+        bool pause = (GameManager.Instance.isPause) ? false : true;
+        GameManager.Instance.isPause = pause;
+
+        if (pause)
+        {
+            PauseMenu.SetActive(pause);
+            PauseMenu.transform.GetChild(1).GetComponent<RectTransform>()
+                .DOAnchorPosY(-450, 0.5f).SetEase(Ease.OutQuad);
+        }
+        else
+        {
+            PauseMenu.transform.GetChild(1).GetComponent<RectTransform>()
+                .DOAnchorPosY(-1350, 0.5f).SetEase(Ease.InQuad)
+                .OnComplete(() => { PauseMenu.SetActive(pause); });
+        }
+    }
+
+    public void EndBtn()
+    {
+        GameManager.Instance.Termination();
     }
 }

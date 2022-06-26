@@ -33,7 +33,7 @@ public class BlockObj : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (Input.GetMouseButton(0) && GameManager.Instance.isCount == false)
+        if (Input.GetMouseButton(0) && GameManager.Instance.isCount == false && GameManager.Instance.isPause == false)
         {
             isDrag = true;
         }

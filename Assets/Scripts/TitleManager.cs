@@ -17,6 +17,18 @@ public class TitleManager : Singleton<TitleManager>
     [SerializeField] private List<TitleUI> TitleUI = new List<TitleUI>();
     [SerializeField] private GameObject TitleMenu;
 
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = FindObjectOfType<TitleManager>();
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,13 +44,10 @@ public class TitleManager : Singleton<TitleManager>
     {
         StartCoroutine(EndTitle("Ingame"));
     }
+
     public void ExitBtn()
     {
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-        Application.Quit();
-#endif
+        GameManager.Instance.Termination();
     }
 
     private IEnumerator StartTitle()
@@ -71,9 +80,8 @@ public class TitleManager : Singleton<TitleManager>
         TitleMenu.SetActive(false);
         GameManager.Instance.FadeIn();
 
-        yield return new WaitForSeconds(1.1f);
+        yield return new WaitForSeconds(1f);
         Loading.LoadingScene(loadScene);
     }
     
-
 }

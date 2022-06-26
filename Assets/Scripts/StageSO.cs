@@ -12,7 +12,6 @@ public class StageData
     public Sprite BlocHallkObj_1;
     public Sprite BlocHallkObj_2;
     public Sprite BlockHallObj_3;
-    public int StarCount = 0;
 }
 
 [CreateAssetMenu(fileName = "StageSO", menuName = "Scriptable Object/StageSO")]

@@ -9,25 +9,11 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     {
         get
         {
-            if(instance == null)
-            {
-                instance = FindObjectOfType<T>();
-                if(instance == null)
-                {
-                    var instanceContainer = new GameObject("Manager");
-                    instance = instanceContainer.AddComponent<T>();
-                }
-            }
             return instance;
         }
-    }
-
-    private void Awake()
-    {
-        if (instance != null)
+        set
         {
-            Destroy(this.gameObject);
+            instance = value;
         }
-
     }
 }

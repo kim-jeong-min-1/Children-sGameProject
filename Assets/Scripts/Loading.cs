@@ -28,14 +28,14 @@ public class Loading : MonoBehaviour
         float timer = 0f;
         float wTime = 0f;
 
-        while(!op.isDone)
+        while (!op.isDone)
         {
+            GameManager.Instance.Panel.color = new Color(0, 0, 0, 0);
             wTime += 0.1f;
 
             if(wTime < 2f)
             {
                 LoadingBar.fillAmount = wTime;
-
             }
             else
             {
@@ -46,7 +46,6 @@ public class Loading : MonoBehaviour
                     op.allowSceneActivation = true;
                     yield break;
                 }
-
             }
             yield return new WaitForSeconds(0.1f);
         }

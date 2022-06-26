@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -8,34 +7,69 @@ using DG.Tweening;
 
 public class GameManager : Singleton<GameManager>
 {
-    private void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
-
     [SerializeField] public Image Panel;
     [SerializeField] private GameObject SettingPopUP;
     [SerializeField] private GameObject ProducerPopUP;
     [SerializeField] CanvasGroup canvasGroup;
+    [SerializeField] private GameObject AskObj;
 
-    public int[] starReached = new int[6]; //스테이지 수 만큼 추가
+    //별 개수 저장
+    public int[] starReached = new int[18]; //스테이지 수 만큼 추가
 
+    //스테이지 진척도 저장
     public int levelReached = 1;
     public int currentStageNum;
 
+    [HideInInspector]
     public bool isCount = true;
+    [HideInInspector]
+    public bool isPause = false;
     private bool isProducer = false;
     // Start is called before the first frame update
 
-    public void LoadSelectScene()
+    private void Awake()
     {
-        //levelSelcetor 씬으로 이동
+        if (Instance == null)
+        {
+            Instance = FindObjectOfType<GameManager>();
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+        //불러오기
+        //Save();
+        Load();
     }
 
+    public void Termination()
+    {
+        canvasGroup.blocksRaycasts = true;
+        AskObj.SetActive(true);
+        AskObj.transform.DOScale(Vector3.one, 0.8f).SetEase(Ease.OutElastic);
+    }
+    public void Yes()
+    {
+        //저장
+        Save();
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
+    }
+
+    public void No()
+    {
+        canvasGroup.blocksRaycasts = false;
+        AskObj.transform.DOScale(Vector3.zero, 0.45f).SetEase(Ease.InQuad).OnComplete
+            (() => { AskObj.transform.localScale = Vector3.one * 0.8f; AskObj.SetActive(false); });
+    }
     public void IngameSettingBtn()
     {
         canvasGroup.blocksRaycasts = true;
-        SettingPopUP.transform.DOScale(new Vector3(1, 1, 1), 0.9f).SetEase(Ease.OutQuad);
+        SettingPopUP.transform.DOScale(new Vector3(1, 1, 1), 0.7f).SetEase(Ease.OutQuad);
     }
 
     public void CloseBtn()
@@ -43,19 +77,19 @@ public class GameManager : Singleton<GameManager>
         if (isProducer)
         {
             isProducer = false;
-            ProducerPopUP.GetComponent<RectTransform>().DOSizeDelta(new Vector2(743, 0), 0.5f);
+            ProducerPopUP.GetComponent<RectTransform>().DOSizeDelta(new Vector2(346, 0), 0.5f);
         }
         else
         {
             canvasGroup.blocksRaycasts = false;
-            SettingPopUP.transform.DOScale(new Vector3(0, 0, 0), 0.8f).SetEase(Ease.OutQuad);
+            SettingPopUP.transform.DOScale(new Vector3(0, 0, 0), 0.5f).SetEase(Ease.OutQuad);
         }
     }
 
     public void ProducerBtn()
     {
         isProducer = true;
-        ProducerPopUP.GetComponent<RectTransform>().DOSizeDelta(new Vector2(743, 492), 0.5f);
+        ProducerPopUP.GetComponent<RectTransform>().DOSizeDelta(new Vector2(346, 230), 0.5f);
     }
 
     public void IngameHomeBtn()
@@ -79,7 +113,6 @@ public class GameManager : Singleton<GameManager>
     private IEnumerator FadeInCoroutine()
     {
         Panel.color = new Color(0, 0, 0, 0);
-
         float fadeCount = 0;
         while(fadeCount < 1.0f)
         {   
@@ -98,6 +131,7 @@ public class GameManager : Singleton<GameManager>
     #region 페이드 아웃
     private IEnumerator FadeOutCoroutine()
     {
+        Panel.color = new Color(0, 0, 0, 1);
         float fadeCount = 1;
         while (fadeCount > 0.0f)
         {
@@ -125,4 +159,31 @@ public class GameManager : Singleton<GameManager>
         SceneManager.LoadScene($"Stage");
     }
 
+    private void Save()
+    {
+        PlayerPrefs.SetInt("Level", levelReached);
+        for (int i = 0; i < starReached.Length; i++)
+        {
+            PlayerPrefs.SetInt($"Star{i}", starReached[i]);
+        }
+    }
+
+    private void Load()
+    {
+        levelReached = PlayerPrefs.GetInt("Level");
+        for(int i = 0; i < starReached.Length; i++)
+        {
+            starReached[i] = PlayerPrefs.GetInt($"Star{i}");
+        }
+
+        if(levelReached == 0)
+        {
+            levelReached = 1;
+        }
+    }
+
+    private void OnApplicationQuit()
+    {
+        Save();
+    }
 }

@@ -14,7 +14,7 @@ public class Star : MonoBehaviour
         gameObject.SetActive(true);
 
         Sequence sequence = DOTween.Sequence();
-        sequence.Append(transform.DOScale(new Vector2(120, 120), 0.7f).SetEase(Ease.OutBack));
+        sequence.Append(transform.DOScale(new Vector2(2, 2), 0.7f).SetEase(Ease.OutBack));
         sequence.InsertCallback(0.3f, StarParticle);
     }
 

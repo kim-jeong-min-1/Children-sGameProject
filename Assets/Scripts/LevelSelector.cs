@@ -10,7 +10,7 @@ public class LevelSelector : MonoBehaviour
     [SerializeField] private Sprite GetStarSprite;
 
     void Awake()
-    {    
+    {
         GetLevel();
     }
     private void Start()
