@@ -88,7 +88,7 @@ public class GameManager : Singleton<GameManager>
         if (isProducer)
         {
             isProducer = false;
-            ProducerPopUP.GetComponent<RectTransform>().DOSizeDelta(new Vector2(346, 0), 0.5f);
+            ProducerPopUP.GetComponent<RectTransform>().DOSizeDelta(new Vector2(743, 0), 0.5f);
         }
         else
         {
@@ -101,7 +101,7 @@ public class GameManager : Singleton<GameManager>
     {
         SoundManager.Instance.PlaySound(SoundEffect.Button);
         isProducer = true;
-        ProducerPopUP.GetComponent<RectTransform>().DOSizeDelta(new Vector2(346, 230), 0.5f);
+        ProducerPopUP.GetComponent<RectTransform>().DOSizeDelta(new Vector2(743, 493), 0.5f);
     }
 
     public void IngameHomeBtn()
@@ -112,7 +112,7 @@ public class GameManager : Singleton<GameManager>
     private IEnumerator IngameGoHome()
     {
         FadeIn();
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1.1f);
 
         SceneManager.LoadScene("Title");
     }
@@ -166,7 +166,7 @@ public class GameManager : Singleton<GameManager>
         }
         GameManager.Instance.FadeIn();
 
-        yield return new WaitForSeconds(1.1f);
+        yield return new WaitForSeconds(1.3f);
         SceneManager.LoadScene($"Stage");
     }
 

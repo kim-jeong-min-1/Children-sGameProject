@@ -65,7 +65,7 @@ public class TitleManager : Singleton<TitleManager>
         TitleMenu.SetActive(false);
         GameManager.Instance.FadeOut();
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.3f);
 
         TitleMenu.SetActive(true);
         //SoundManager.Instance.PlaySound(SoundEffect.TitleSound);

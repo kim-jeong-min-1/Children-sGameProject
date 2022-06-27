@@ -84,7 +84,7 @@ public class StageManager : Singleton<StageManager>
     //카운트 다운
     private IEnumerator CountCoroutine()
     {
-        yield return new WaitForSeconds(1.1f);
+        yield return new WaitForSeconds(1.3f);
         int countTime = 3;
         CountText.gameObject.SetActive(true);
 

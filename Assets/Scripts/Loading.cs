@@ -23,7 +23,7 @@ public class Loading : MonoBehaviour
 
     private IEnumerator StartLoading()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.3f);
         AsyncOperation op = SceneManager.LoadSceneAsync(nextScene);
         op.allowSceneActivation = false;
 
@@ -32,7 +32,7 @@ public class Loading : MonoBehaviour
 
         while (!op.isDone)
         {
-            GameManager.Instance.Panel.color = new Color(0, 0, 0, 0);
+            //GameManager.Instance.Panel.color = new Color(0, 0, 0, 0);
             wTime += 0.1f;
 
             if(wTime < 2f)
@@ -46,7 +46,7 @@ public class Loading : MonoBehaviour
                 if(LoadingBar.fillAmount >= 1f)
                 {
                     GameManager.Instance.FadeIn();
-                    yield return new WaitForSeconds(1.1f);
+                    yield return new WaitForSeconds(1.3f);
                     op.allowSceneActivation = true;
                     yield break;
                 }
