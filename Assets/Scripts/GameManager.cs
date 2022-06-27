@@ -12,6 +12,7 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private GameObject ProducerPopUP;
     [SerializeField] CanvasGroup canvasGroup;
     [SerializeField] private GameObject AskObj;
+    [SerializeField] private Slider soundBar;
 
     //별 개수 저장
     public int[] starReached = new int[18]; //스테이지 수 만큼 추가
@@ -42,15 +43,22 @@ public class GameManager : Singleton<GameManager>
         //Save();
         Load();
     }
+    public void SoundSetting()
+    {
+        SoundManager.Instance.BGM.volume =
+            soundBar.value;
+    }
 
     public void Termination()
     {
+        SoundManager.Instance.PlaySound(SoundEffect.Button);
         canvasGroup.blocksRaycasts = true;
         AskObj.SetActive(true);
         AskObj.transform.DOScale(Vector3.one, 0.8f).SetEase(Ease.OutElastic);
     }
     public void Yes()
     {
+        SoundManager.Instance.PlaySound(SoundEffect.Button);
         //저장
         Save();
 #if UNITY_EDITOR
@@ -62,18 +70,21 @@ public class GameManager : Singleton<GameManager>
 
     public void No()
     {
+        SoundManager.Instance.PlaySound(SoundEffect.Button);
         canvasGroup.blocksRaycasts = false;
         AskObj.transform.DOScale(Vector3.zero, 0.45f).SetEase(Ease.InQuad).OnComplete
             (() => { AskObj.transform.localScale = Vector3.one * 0.8f; AskObj.SetActive(false); });
     }
     public void IngameSettingBtn()
     {
+        SoundManager.Instance.PlaySound(SoundEffect.Button);
         canvasGroup.blocksRaycasts = true;
         SettingPopUP.transform.DOScale(new Vector3(1, 1, 1), 0.7f).SetEase(Ease.OutQuad);
     }
 
     public void CloseBtn()
     {
+        SoundManager.Instance.PlaySound(SoundEffect.Button);
         if (isProducer)
         {
             isProducer = false;
@@ -88,12 +99,14 @@ public class GameManager : Singleton<GameManager>
 
     public void ProducerBtn()
     {
+        SoundManager.Instance.PlaySound(SoundEffect.Button);
         isProducer = true;
         ProducerPopUP.GetComponent<RectTransform>().DOSizeDelta(new Vector2(346, 230), 0.5f);
     }
 
     public void IngameHomeBtn()
     {
+        SoundManager.Instance.PlaySound(SoundEffect.Button);
         StartCoroutine("IngameGoHome");
     }
     private IEnumerator IngameGoHome()

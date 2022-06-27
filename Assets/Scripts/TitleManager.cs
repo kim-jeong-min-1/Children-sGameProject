@@ -27,6 +27,8 @@ public class TitleManager : Singleton<TitleManager>
         {
             Destroy(this.gameObject);
         }
+
+        SoundManager.Instance.PlayBGM(0.2f);
     }
 
     // Start is called before the first frame update
@@ -37,16 +39,19 @@ public class TitleManager : Singleton<TitleManager>
 
     public void HomeBtn()
     {
+        SoundManager.Instance.PlaySound(SoundEffect.Button);
         StartCoroutine(EndTitle("Title"));
     }
 
     public void StartBtn()
     {
+        SoundManager.Instance.PlaySound(SoundEffect.Button);
         StartCoroutine(EndTitle("Ingame"));
     }
 
     public void ExitBtn()
     {
+        SoundManager.Instance.PlaySound(SoundEffect.Button);
         GameManager.Instance.Termination();
     }
 
@@ -58,6 +63,7 @@ public class TitleManager : Singleton<TitleManager>
         yield return new WaitForSeconds(1f);
 
         TitleMenu.SetActive(true);
+        SoundManager.Instance.PlaySound(SoundEffect.TitleSound);
         TitleUI[0].UI.GetComponent<RectTransform>().DOAnchorPos(TitleUI[0].MovePos, 1.3f).SetEase(Ease.OutBounce);
         for(int i = 1; i < TitleUI.Count; i++)
         {

@@ -12,6 +12,7 @@ public class LevelSelector : MonoBehaviour
     void Awake()
     {
         GetLevel();
+        SoundManager.Instance.PlayBGM(0.2f);
     }
     private void Start()
     {
@@ -41,6 +42,7 @@ public class LevelSelector : MonoBehaviour
 
     public void SelectLevel()
     {
+        SoundManager.Instance.PlaySound(SoundEffect.Button);
         StartCoroutine(GameManager.Instance.SelectLevelCoroutine(true));
     }
 

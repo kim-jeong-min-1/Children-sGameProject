@@ -37,6 +37,7 @@ public class StageManager : Singleton<StageManager>
         {
             Destroy(this.gameObject);
         }
+        SoundManager.Instance.PlayBGM(0.2f);
         LoadStage();
         StartCoroutine(CountCoroutine());
     }
@@ -89,11 +90,13 @@ public class StageManager : Singleton<StageManager>
 
         while(countTime > 0)
         {
+            SoundManager.Instance.PlaySound(SoundEffect.Count);
             CountText.text = $"{countTime}";
 
             yield return new WaitForSeconds(1f);
             countTime--;
         }
+        SoundManager.Instance.PlaySound(SoundEffect.Start);
         CountText.text = "Start!";
 
         yield return new WaitForSeconds(0.5f);
@@ -142,6 +145,7 @@ public class StageManager : Singleton<StageManager>
     private IEnumerator ResultPopUpCoroutine()
     {
         yield return new WaitForSeconds(1);
+        SoundManager.Instance.PlaySound(SoundEffect.Clear, 0.75f);
         ResultPopUP.SetActive(true);
         PopUP.GetComponent<RectTransform>().DOAnchorPos(new Vector2(0, -67), 0.7f).SetEase(Ease.InQuad);
         yield return new WaitForSeconds(0.9f);
@@ -165,35 +169,41 @@ public class StageManager : Singleton<StageManager>
 
     public void HomeBtn()
     {
+        SoundManager.Instance.PlaySound(SoundEffect.Button);
         GameManager.Instance.IngameHomeBtn();
     }
 
     public void NextBtn()
     {
+        SoundManager.Instance.PlaySound(SoundEffect.Button);
         StartCoroutine(GameManager.Instance.SelectLevelCoroutine(false));
     }
 
     public void PauseBtn()
     {
+        SoundManager.Instance.PlaySound(SoundEffect.Button);
         bool pause = (GameManager.Instance.isPause) ? false : true;
         GameManager.Instance.isPause = pause;
 
         if (pause)
         {
             PauseMenu.SetActive(pause);
+            SoundManager.Instance.PlaySound(SoundEffect.Menu);
             PauseMenu.transform.GetChild(1).GetComponent<RectTransform>()
                 .DOAnchorPosY(-450, 0.5f).SetEase(Ease.OutQuad);
         }
         else
         {
+            SoundManager.Instance.PlaySound(SoundEffect.Menu);
             PauseMenu.transform.GetChild(1).GetComponent<RectTransform>()
-                .DOAnchorPosY(-1350, 0.5f).SetEase(Ease.InQuad)
+                .DOAnchorPosY(-1450, 0.5f).SetEase(Ease.InQuad)
                 .OnComplete(() => { PauseMenu.SetActive(pause); });
         }
     }
 
     public void EndBtn()
     {
+        SoundManager.Instance.PlaySound(SoundEffect.Button);
         GameManager.Instance.Termination();
     }
 }

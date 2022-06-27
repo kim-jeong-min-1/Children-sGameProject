@@ -36,6 +36,7 @@ public class Scroll : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHa
         for (int i = 0; i < SIZE; i++)
             if(scrollbar.value < pos[i] + (distance / 2) && scrollbar.value > pos[i] - (distance / 2))
             {
+                SoundManager.Instance.PlaySound(SoundEffect.Slied);
                 targetPos = pos[i];
             } 
     }

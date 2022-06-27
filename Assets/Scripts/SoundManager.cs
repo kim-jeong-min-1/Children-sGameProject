@@ -5,15 +5,16 @@ using UnityEngine.SceneManagement;
 
 public enum SoundEffect
 {
-    Button,
-    Slied,
-    Count,
-    Start,
-    Success,
-    Fail,
-    Clear,
-    Result,
-    Star,
+    TitleSound,//
+    Button, //
+    Slied, //
+    Count,//
+    Start,//
+    Success,//
+    Fail,//
+    Clear,//
+    Menu, //
+    Star,//
 }
 
 public class SoundManager : Singleton<SoundManager>
@@ -22,7 +23,7 @@ public class SoundManager : Singleton<SoundManager>
     public AudioClip[] soundClips;
     public AudioClip[] Bgms;
 
-    [SerializeField] AudioSource BGM;
+    [SerializeField] public AudioSource BGM;
 
     private void Awake()
     {
@@ -36,11 +37,11 @@ public class SoundManager : Singleton<SoundManager>
             Destroy(this.gameObject);
         }
         
-        //foreach(AudioClip audioClip in soundClips)
-        //{
-        //    int index = System.Array.IndexOf(soundClips, audioClip);
-        //    Sounds.Add((SoundEffect)index, audioClip);
-        //}
+        foreach(AudioClip audioClip in soundClips)
+        {
+            int index = System.Array.IndexOf(soundClips, audioClip);
+            Sounds.Add((SoundEffect)index, audioClip);
+        }
     }
 
     public void PlaySound(SoundEffect sound, float volume = 1f)
@@ -51,14 +52,25 @@ public class SoundManager : Singleton<SoundManager>
         audioSource.clip = Sounds[sound];
 
         audioSource.Play();
-        Destroy(audioSource, audioSource.clip.length);
+        Destroy(audioSource.gameObject, audioSource.clip.length);
     }
 
     public void PlayBGM(float volum = 1f)
     {
+        BGM.volume = volum;
         if(SceneManager.GetActiveScene().name == "Title")
         {
             BGM.clip = Bgms[0];
+            BGM.Play();
+        }
+        else if (SceneManager.GetActiveScene().name == "Ingame")
+        {
+            BGM.clip = Bgms[1];
+            BGM.Play();
+        }
+        else if (SceneManager.GetActiveScene().name == "Stage")
+        {
+            BGM.clip = Bgms[2];
             BGM.Play();
         }
     }

@@ -15,7 +15,8 @@ public class Star : MonoBehaviour
 
         Sequence sequence = DOTween.Sequence();
         sequence.Append(transform.DOScale(new Vector2(2, 2), 0.7f).SetEase(Ease.OutBack));
-        sequence.InsertCallback(0.3f, StarParticle);
+        SoundManager.Instance.PlaySound(SoundEffect.Star);
+        sequence.InsertCallback(0.33f, StarParticle);
     }
 
     private void StarParticle()

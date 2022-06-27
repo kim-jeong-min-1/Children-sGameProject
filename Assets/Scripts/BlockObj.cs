@@ -45,12 +45,14 @@ public class BlockObj : MonoBehaviour
         float Distance = Vector2.Distance(this.transform.position, DropObj.transform.position);
         if (Distance < 0.35f)
         {
+            SoundManager.Instance.PlaySound(SoundEffect.Success);
             this.transform.position = DropObj.transform.position;
             isFinish = true;
             StageManager.Instance.PutPuzzle();
         }
         else
         {
+            SoundManager.Instance.PlaySound(SoundEffect.Fail);
             this.transform.position = previousPos;
         }
     }
