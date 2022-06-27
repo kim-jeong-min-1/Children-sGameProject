@@ -43,6 +43,11 @@ public class TitleManager : Singleton<TitleManager>
         StartCoroutine(EndTitle("Title"));
     }
 
+    public void SettingBtn()
+    {
+        GameManager.Instance.IngameSettingBtn();
+    }
+
     public void StartBtn()
     {
         SoundManager.Instance.PlaySound(SoundEffect.Button);
@@ -63,7 +68,7 @@ public class TitleManager : Singleton<TitleManager>
         yield return new WaitForSeconds(1f);
 
         TitleMenu.SetActive(true);
-        SoundManager.Instance.PlaySound(SoundEffect.TitleSound);
+        //SoundManager.Instance.PlaySound(SoundEffect.TitleSound);
         TitleUI[0].UI.GetComponent<RectTransform>().DOAnchorPos(TitleUI[0].MovePos, 1.3f).SetEase(Ease.OutBounce);
         for(int i = 1; i < TitleUI.Count; i++)
         {
@@ -86,7 +91,7 @@ public class TitleManager : Singleton<TitleManager>
         TitleMenu.SetActive(false);
         GameManager.Instance.FadeIn();
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.3f);
         Loading.LoadingScene(loadScene);
     }
     

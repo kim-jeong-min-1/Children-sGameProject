@@ -11,12 +11,9 @@ public class LevelSelector : MonoBehaviour
 
     void Awake()
     {
-        GetLevel();
-        SoundManager.Instance.PlayBGM(0.2f);
-    }
-    private void Start()
-    {
         GameManager.Instance.FadeOut();
+        SoundManager.Instance.PlayBGM(0.2f);
+        GetLevel();
     }
 
     private void GetLevel()
@@ -46,4 +43,13 @@ public class LevelSelector : MonoBehaviour
         StartCoroutine(GameManager.Instance.SelectLevelCoroutine(true));
     }
 
+    public void HomeBtn()
+    {
+        GameManager.Instance.IngameHomeBtn();
+    }
+
+    public void SettingBtn()
+    {
+        GameManager.Instance.IngameSettingBtn();
+    }
 }

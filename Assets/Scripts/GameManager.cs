@@ -119,38 +119,36 @@ public class GameManager : Singleton<GameManager>
 
     public void FadeIn()
     {
-        StartCoroutine("FadeInCoroutine");
+        StartCoroutine(FadeInCoroutine());
     }
 
     #region 페이드 인
     private IEnumerator FadeInCoroutine()
     {
-        Panel.color = new Color(0, 0, 0, 0);
         float fadeCount = 0;
         while(fadeCount < 1.0f)
         {   
             fadeCount += 0.01f;
-            yield return new WaitForSeconds(0.01f);
             Panel.color = new Color(0, 0, 0, fadeCount);
+            yield return new WaitForSeconds(0.01f);
         }
     }
     #endregion
 
     public void FadeOut()
     {
-        StartCoroutine("FadeOutCoroutine");
+        StartCoroutine(FadeOutCoroutine());
     }
 
     #region 페이드 아웃
     private IEnumerator FadeOutCoroutine()
     {
-        Panel.color = new Color(0, 0, 0, 1);
         float fadeCount = 1;
         while (fadeCount > 0.0f)
         {
             fadeCount -= 0.01f;
-            yield return new WaitForSeconds(0.01f);
             Panel.color = new Color(0, 0, 0, fadeCount);
+            yield return new WaitForSeconds(0.01f);
         }
     }
     #endregion

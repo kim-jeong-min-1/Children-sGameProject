@@ -15,13 +15,15 @@ public class Loading : MonoBehaviour
         SceneManager.LoadScene("Loading");
     }
 
-    void Start()
+    void Awake()
     {
+        GameManager.Instance.FadeOut();
         StartCoroutine(StartLoading());
     }
 
     private IEnumerator StartLoading()
     {
+        yield return new WaitForSeconds(1f);
         AsyncOperation op = SceneManager.LoadSceneAsync(nextScene);
         op.allowSceneActivation = false;
 
@@ -43,6 +45,8 @@ public class Loading : MonoBehaviour
                 LoadingBar.fillAmount = Mathf.Lerp(0.9f, 1, timer);
                 if(LoadingBar.fillAmount >= 1f)
                 {
+                    GameManager.Instance.FadeIn();
+                    yield return new WaitForSeconds(1.1f);
                     op.allowSceneActivation = true;
                     yield break;
                 }

@@ -37,6 +37,7 @@ public class StageManager : Singleton<StageManager>
         {
             Destroy(this.gameObject);
         }
+        GameManager.Instance.FadeOut();
         SoundManager.Instance.PlayBGM(0.2f);
         LoadStage();
         StartCoroutine(CountCoroutine());
@@ -83,8 +84,7 @@ public class StageManager : Singleton<StageManager>
     //카운트 다운
     private IEnumerator CountCoroutine()
     {
-        GameManager.Instance.FadeOut();
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.1f);
         int countTime = 3;
         CountText.gameObject.SetActive(true);
 
