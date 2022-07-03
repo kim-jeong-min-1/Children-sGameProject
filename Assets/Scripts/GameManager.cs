@@ -112,7 +112,7 @@ public class GameManager : Singleton<GameManager>
     private IEnumerator IngameGoHome()
     {
         FadeIn();
-        yield return new WaitForSeconds(1.1f);
+        yield return new WaitForSeconds(1.6f);
 
         SceneManager.LoadScene("Title");
     }
@@ -166,7 +166,7 @@ public class GameManager : Singleton<GameManager>
         }
         GameManager.Instance.FadeIn();
 
-        yield return new WaitForSeconds(1.3f);
+        yield return new WaitForSeconds(1.6f);
         SceneManager.LoadScene($"Stage");
     }
 

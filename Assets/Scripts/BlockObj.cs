@@ -36,11 +36,13 @@ public class BlockObj : MonoBehaviour
         if (Input.GetMouseButton(0) && GameManager.Instance.isCount == false && GameManager.Instance.isPause == false)
         {
             isDrag = true;
+            transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder += 1;
         }
     }
     private void OnMouseUp()
     {
         isDrag = false;
+        transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder -= 1;
 
         float Distance = Vector2.Distance(this.transform.position, DropObj.transform.position);
         if (Distance < 0.35f)

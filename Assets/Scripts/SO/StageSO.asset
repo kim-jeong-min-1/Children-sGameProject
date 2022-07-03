@@ -137,5 +137,5 @@ MonoBehaviour:
     BlockObj_2: {fileID: 21300000, guid: c03a23e149cd8ae4c9d34d491a701e92, type: 3}
     BlockObj_3: {fileID: 21300000, guid: 5067832e1f3c71445b16f10f48244d8d, type: 3}
     BlocHallkObj_1: {fileID: 21300000, guid: b1df44aa1d5c6d9408b3306dfb52a816, type: 3}
-    BlocHallkObj_2: {fileID: 21300000, guid: a8d8cd2d945e2d148bd9e41bcc919a1f, type: 3}
-    BlockHallObj_3: {fileID: 21300000, guid: 69ce4bff5c06c6f4bbb2e847361f3faf, type: 3}
+    BlocHallkObj_2: {fileID: 21300000, guid: 2423d50698610284085ef68c48c4f702, type: 3}
+    BlockHallObj_3: {fileID: 21300000, guid: ce1ca17d86852c146a1ea0bfcf2ff1bc, type: 3}

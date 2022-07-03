@@ -24,6 +24,7 @@ public class StageManager : Singleton<StageManager>
     private int Score;
     private int StarCount = 0;
     private bool isGameClear = false;
+    private bool isOne = false;
     private float timer = 0;
 
     //로딩하는 동안 스테이지 불러오기
@@ -84,7 +85,7 @@ public class StageManager : Singleton<StageManager>
     //카운트 다운
     private IEnumerator CountCoroutine()
     {
-        yield return new WaitForSeconds(1.3f);
+        yield return new WaitForSeconds(2f);
         int countTime = 3;
         CountText.gameObject.SetActive(true);
 
@@ -111,6 +112,7 @@ public class StageManager : Singleton<StageManager>
     {
         Shuffle();
         GameManager.Instance.isCount = true;
+        isOne = false;
 
         BlockObjectSprite[0].sprite = stageSO.stageDatas[GameManager.Instance.currentStageNum-1].BlockObj_1;
         BlockObjectSprite[1].sprite = stageSO.stageDatas[GameManager.Instance.currentStageNum-1].BlockObj_2;
@@ -169,14 +171,18 @@ public class StageManager : Singleton<StageManager>
 
     public void HomeBtn()
     {
+        if (isOne) return;
         SoundManager.Instance.PlaySound(SoundEffect.Button);
         GameManager.Instance.IngameHomeBtn();
+        isOne = true;
     }
 
     public void NextBtn()
     {
+        if (isOne) return;
         SoundManager.Instance.PlaySound(SoundEffect.Button);
         StartCoroutine(GameManager.Instance.SelectLevelCoroutine(false));
+        isOne = true;
     }
 
     public void PauseBtn()
