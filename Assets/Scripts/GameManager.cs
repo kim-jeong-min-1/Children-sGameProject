@@ -193,6 +193,7 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
+
     private void OnApplicationQuit()
     {
         Save();

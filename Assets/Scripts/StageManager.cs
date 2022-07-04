@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using DG.Tweening;
 using TMPro;
 
@@ -211,5 +212,17 @@ public class StageManager : Singleton<StageManager>
     {
         SoundManager.Instance.PlaySound(SoundEffect.Button);
         GameManager.Instance.Termination();
+    }
+
+    public void GoLevelSelect()
+    {
+        StartCoroutine(QuitBtn());
+    }
+
+    private IEnumerator QuitBtn()
+    {
+        GameManager.Instance.FadeIn();
+        yield return new WaitForSeconds(1.6f);
+        SceneManager.LoadScene("Ingame");
     }
 }

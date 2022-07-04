@@ -1196,8 +1196,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000019073, y: -0.0000047684}
-  m_SizeDelta: {x: 230.5, y: 72.86}
+  m_AnchoredPosition: {x: 0, y: 0.000029325}
+  m_SizeDelta: {x: 196.18, y: 62.01}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &695261519
 MonoBehaviour:
@@ -1219,7 +1219,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b632e2fd8a974594c80cac8203aea079, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3a8a398f52d18d742b5b808ff017b9d6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1322,7 +1322,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1006867599}
         m_TargetAssemblyTypeName: StageManager, Assembly-CSharp
-        m_MethodName: EndBtn
+        m_MethodName: GoLevelSelect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

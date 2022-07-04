@@ -24,7 +24,7 @@ MonoBehaviour:
     BlockObj_1: {fileID: 21300000, guid: 2b8a8aa37be0a144484a9c82f6a24211, type: 3}
     BlockObj_2: {fileID: 21300000, guid: 83026637f70cd154dbb1900369576e3e, type: 3}
     BlockObj_3: {fileID: 21300000, guid: 51a06f15ce365f148ba119d2f1d6101d, type: 3}
-    BlocHallkObj_1: {fileID: 21300000, guid: 227569ad94f7a2e4c978bd6e3a392dfe, type: 3}
+    BlocHallkObj_1: {fileID: 21300000, guid: 8213bd011c6e99e42bb8803910ea6339, type: 3}
     BlocHallkObj_2: {fileID: 21300000, guid: 60005cf8f3dafa344af6088fb70581d9, type: 3}
     BlockHallObj_3: {fileID: 21300000, guid: 44d725c4564e1cb4eb42ffacc41c9768, type: 3}
   - BackGround: {fileID: 21300000, guid: 242dcbbd4ca20c949bf2b7e548fcca77, type: 3}
@@ -66,7 +66,7 @@ MonoBehaviour:
     BlockObj_1: {fileID: 21300000, guid: ec4cdbbad5344ff43b6026ef1a360799, type: 3}
     BlockObj_2: {fileID: 21300000, guid: f7fa031006b4bd142a858d4c1a508b1e, type: 3}
     BlockObj_3: {fileID: 21300000, guid: 1fe6b333b7ede8f4db6ce17b3770cbc1, type: 3}
-    BlocHallkObj_1: {fileID: 21300000, guid: 41f06a7790dd88848b7b7f8692bb8df7, type: 3}
+    BlocHallkObj_1: {fileID: 21300000, guid: 0b8e3a756cff79348baa05428c44de63, type: 3}
     BlocHallkObj_2: {fileID: 21300000, guid: 93d2c356d516d32419bddfd1ce0a8560, type: 3}
     BlockHallObj_3: {fileID: 21300000, guid: fad05618d5930ee45b6622ed5fbdb7d5, type: 3}
   - BackGround: {fileID: 21300000, guid: f84036715abe00447b1d2e32d5d5ea3d, type: 3}
@@ -137,5 +137,5 @@ MonoBehaviour:
     BlockObj_2: {fileID: 21300000, guid: c03a23e149cd8ae4c9d34d491a701e92, type: 3}
     BlockObj_3: {fileID: 21300000, guid: 5067832e1f3c71445b16f10f48244d8d, type: 3}
     BlocHallkObj_1: {fileID: 21300000, guid: b1df44aa1d5c6d9408b3306dfb52a816, type: 3}
-    BlocHallkObj_2: {fileID: 21300000, guid: 2423d50698610284085ef68c48c4f702, type: 3}
-    BlockHallObj_3: {fileID: 21300000, guid: ce1ca17d86852c146a1ea0bfcf2ff1bc, type: 3}
+    BlocHallkObj_2: {fileID: 21300000, guid: b04378b568424d24ca0dfcb5d0a8d925, type: 3}
+    BlockHallObj_3: {fileID: 21300000, guid: 730837321e45d0f428ff63403423bd86, type: 3}
