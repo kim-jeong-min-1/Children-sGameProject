@@ -99,7 +99,7 @@ public class StageManager : Singleton<StageManager>
             countTime--;
         }
         SoundManager.Instance.PlaySound(SoundEffect.Start);
-        CountText.text = "Start!";
+        CountText.text = "GO!";
 
         yield return new WaitForSeconds(0.5f);
         CountText.gameObject.SetActive(false);
