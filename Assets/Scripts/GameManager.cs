@@ -18,7 +18,7 @@ public class GameManager : Singleton<GameManager>
     public int[] starReached = new int[18]; //스테이지 수 만큼 추가
 
     //스테이지 진척도 저장
-    public int levelReached = 1;
+    public int levelReached = 13;
     public int currentStageNum;
 
     [HideInInspector]
